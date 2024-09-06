@@ -9,7 +9,7 @@ import ViewRowModal from './modals/ViewRowModal'; // Ensure this path is correct
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 
-const Welcome = () => {
+const Leads = () => {
   const [allData, setAllData] = useState([]); // Store all data
   const [filteredData, setFilteredData] = useState([]); // Store filtered data
   const [rowData, setRowData] = useState([]);
@@ -313,4 +313,4 @@ const fetchData = async () => {
   );
 };
 
-export default Welcome;
+export default Leads;
