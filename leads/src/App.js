@@ -51,7 +51,7 @@ function App() {
     <AuthContext.Provider value={{ auth, setAuth, handleLogout }}>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login/>} />
           <Route 
             path="/leads" 
             element={auth.isAuthenticated ? <Leads /> : <Navigate to="/" />} 

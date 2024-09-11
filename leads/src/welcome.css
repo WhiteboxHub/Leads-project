@@ -5,8 +5,9 @@
   max-width: 1200px;
   position: relative;
   font-family: Arial, sans-serif;
-  margin: 20px;
-  left :100px
+  margin: auto;
+  margin-top: 12px;
+  /* left :100px */
 }
 
 /* Header box styling */

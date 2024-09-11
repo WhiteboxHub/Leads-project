@@ -186,9 +186,9 @@
 
 
 // src/Login.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -196,6 +196,14 @@ const Login = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  const histroy = useNavigate()
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      histroy('/leads')
+    }
+  },)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
