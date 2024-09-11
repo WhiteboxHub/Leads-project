@@ -77,7 +77,7 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api', leadsRoutes);
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 

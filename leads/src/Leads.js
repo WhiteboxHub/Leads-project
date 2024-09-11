@@ -48,7 +48,7 @@ const Leads = () => {
       if (!leadid) {
         throw new Error('leadid is missing from formData');
       }
-      const response = await axios.put(`http://localhost:8001/api/leads/${leadid}`, data);
+      const response = await axios.put(`http://localhost:8005/api/leads/${leadid}`, data);
       console.log('Row updated successfully:', response.data);
       // Optionally refresh the data or show a success message
     } catch (error) {
@@ -75,7 +75,7 @@ const Leads = () => {
 
   const fetchData = async () => {
   try {
-    const response = await axios.get('http://localhost:8001/api/leads', {
+    const response = await axios.get('http://localhost:8005/api/leads', {
       params: {
         page: currentPage,
         pageSize: paginationPageSize,
@@ -119,7 +119,7 @@ const Leads = () => {
     console.log(newRow);
     
     try {
-      await axios.put('http://localhost:8001/api/insert/leads', newRow,
+      await axios.put('http://localhost:8005/api/insert/leads', newRow,
         {headers:{AuthToken:localStorage.getItem('token')}}
       );
       fetchData(); // Refetch data after saving
@@ -135,7 +135,7 @@ const Leads = () => {
     console.log(newRow);
     
     try {
-      await axios.put(`http://localhost:8001/api/leads/update/${newRow.leadid}`, newRow,
+      await axios.put(`http://localhost:8005/api/leads/update/${newRow.leadid}`, newRow,
         {headers:{AuthToken:localStorage.getItem('token')}}
       );
       fetchData(); // Refetch data after saving
@@ -237,7 +237,7 @@ const handleSearch = async () => {
   // }
 
   try {
-    const response = await axios.get(`http://localhost:8001/api/leads/search/${searchValue}`, {
+    const response = await axios.get(`http://localhost:8005/api/leads/search/${searchValue}`, {
       headers: {
         AuthToken: localStorage.getItem('token'),
       },
@@ -258,10 +258,10 @@ const handleSearch = async () => {
     console.log(startIndex);
     // console.log(paginatedData);    
     updateRowData(paginatedData);
-    
+
   } catch (error) {
     // console.error('Error fetching search results:', error);
-    setMessage({ text: 'Error fetching search results. Please try again.', type: 'error' });
+    // setMessage({ text: 'Error fetching search results. Please try again.', type: 'error' });
   }
 };
   const resetSearch = () => {

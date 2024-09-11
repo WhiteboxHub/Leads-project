@@ -203,13 +203,13 @@ const Login = () => {
     if(token){
       histroy('/leads')
     }
-  },)
+  },[])
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8001/api/auth/login', { username, password });
+      const response = await axios.post('http://localhost:8005/api/auth/login', { username, password });
       const token = response.data.token;
 
       localStorage.setItem('token', token); // Save token to localStorage for auth management
